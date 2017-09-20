@@ -2,8 +2,26 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Post from './Post.js';
+import Client from './Client.js';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      posts: []
+    };
+  }
+
+  componentDidMount() {
+    fetch('/posts.json')
+    .then((response) => {
+      return response.json();
+    }).then((myJSON) => {
+      this.setState({
+        posts: myJSON
+      })
+    })
+  }
   render() {
     return (
       <div className="App">
