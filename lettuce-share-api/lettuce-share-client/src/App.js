@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Post from './Post.js';
-import Client from './Client.js';
 
 class App extends Component {
   constructor(props) {
