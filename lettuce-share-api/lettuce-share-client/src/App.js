@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import logo from './lettuce-logo.png';
 import './App.css';
 import PostFeed from './PostFeed.js';
 
@@ -12,7 +12,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    fetch('/posts.json')
+    fetch('/api/posts.json')
     .then((response) => {
       return response.json();
     }).then((myJSON) => {
