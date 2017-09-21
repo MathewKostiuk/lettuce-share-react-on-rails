@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Post from './Post.js';
+import PostFeed from './PostFeed.js';
 
 class App extends Component {
   constructor(props) {
@@ -29,7 +29,7 @@ class App extends Component {
           <h2>Welcome to React</h2>
         </div>
         <p className="App-intro">
-          <Post />
+          <PostFeed posts={this.state.posts} />
         </p>
       </div>
     );

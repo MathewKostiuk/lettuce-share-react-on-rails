@@ -31,3 +31,19 @@ cat1.posts.create!({
   user_id: 1,
   location: "Oreganos Fairfield"
   })
+
+cat1.posts.create!({
+  title: "Baked Potatoes",
+  description: "2 dozen baked potatoes left over from the dinner rush.",
+  image: "http://i.imgur.com/CzRqSa7.jpg",
+  user_id: 1,
+  location: "The Keg"
+  })
+
+cat1.posts.create!({
+  title: "Plums Galore!",
+  description: "Too many plums, too little time to eat them all! Help yourself! Eat em' fresh or make some delicious jam!",
+  image: "http://i.imgur.com/0tjXtQt.jpg",
+  user_id: 1,
+  location: "145 wilson street, victoria"
+  })
