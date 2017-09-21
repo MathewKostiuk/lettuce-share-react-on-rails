@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import './PostFeed.css';
 import Post from './Post.js';
 
 class PostFeed extends Component {
@@ -13,7 +14,7 @@ class PostFeed extends Component {
         userId= { post.user_id } />
     })
     return (
-      <main className='posts'>
+      <main className='posts-container'>
         { posts }
       </main>
     );

@@ -1,4 +1,5 @@
 import React , {Component} from 'react';
+import './Post.css';
 
 class Post extends Component {
 
@@ -7,7 +8,7 @@ class Post extends Component {
     return (
       <div className='post'>
         <span>{ this.props.title }</span>
-        <img src={ this.props.image }alt='post' />
+        <img className='post-image' src={ this.props.image }alt='post' />
         <span>{ this.props.description }</span>
         <span>{ this.props.location }</span>
       </div>
