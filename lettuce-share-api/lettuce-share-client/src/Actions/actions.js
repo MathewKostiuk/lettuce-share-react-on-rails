@@ -11,9 +11,9 @@ export function getPosts() {
 }
 
 export function addPost(post) {
-  return { type: ADD_POST, post }
+  return {
+   type: ADD_POST,
+   post
+  }
 }
 
-export function togglePost(index) {
-  return { type: TOGGLE_POST, index }
-}

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import logo from './lettuce-logo.png';
-import './App.css';
+import logo from '../lettuce-logo.png';
+import '../Styles/App.css';
 import PostFeed from './PostFeed.js';
 
 class App extends Component {

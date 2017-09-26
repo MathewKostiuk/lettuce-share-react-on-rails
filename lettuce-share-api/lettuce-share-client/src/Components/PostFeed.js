@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import './PostFeed.css';
+import '../Styles/PostFeed.css';
 import Post from './Post.js';
 
 class PostFeed extends Component {
