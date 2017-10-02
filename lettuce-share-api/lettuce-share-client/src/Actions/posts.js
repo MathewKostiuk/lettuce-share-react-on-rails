@@ -1,4 +1,3 @@
-
 export const REQUEST_ALL_POSTS = 'REQUEST_ALL_POSTS';
 export function requestAllPosts() {
   return { type: REQUEST_ALL_POSTS }
@@ -28,3 +27,10 @@ export function fetchAllPosts() {
   }
 }
 
+export const ADD_POST = 'ADD_POST';
+export function addPost(post) {
+  return {
+    type: ADD_POST,
+    post
+  }
+}

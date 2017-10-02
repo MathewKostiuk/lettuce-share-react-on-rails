@@ -4,11 +4,11 @@ import thunkMiddleware from 'redux-thunk';
 import { createLogger } from 'redux-logger';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
-import posts from './Reducers/reducers';
+import posts from './Reducers/posts';
 import './Styles/index.css';
 import App from './Components/App';
 import registerServiceWorker from './Components/registerServiceWorker';
-import { fetchAllPosts } from './Actions/actions';
+import { fetchAllPosts } from './Actions/posts';
 
 const loggerMiddleware = createLogger();
 
@@ -20,6 +20,10 @@ const store = createStore(
     )
   )
 
+store
+  .dispatch(fetchAllPosts())
+  .then(() => console.log(store.getState()))
+
 const RootEl = document.getElementById('root');
 ReactDOM.render(
   <Provider store={store}>
@@ -28,8 +32,7 @@ ReactDOM.render(
    RootEl);
 registerServiceWorker();
 
-console.log(store.getState());
-
 store
   .dispatch(fetchAllPosts())
   .then(() => console.log(store.getState()))
+

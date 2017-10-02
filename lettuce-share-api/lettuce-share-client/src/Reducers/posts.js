@@ -2,12 +2,12 @@ import {
   ADD_POST,
   REQUEST_ALL_POSTS,
   RECEIVED_ALL_POSTS
-} from '../Actions/actions.js';
+} from '../Actions/posts.js';
 
 function posts(
   state = {
     isFetching: false,
-    items: []
+    posts: []
   },
   action
 ) {
@@ -19,8 +19,12 @@ function posts(
     case RECEIVED_ALL_POSTS:
       return Object.assign({}, state, {
         isFetching: false,
-        items: action.posts,
+        posts: action.posts,
         lastUpdated: action.receivedAt
+      })
+    case ADD_POST:
+      return Object.assign({}, state, {
+        posts: action.post
       })
     default:
       return state
