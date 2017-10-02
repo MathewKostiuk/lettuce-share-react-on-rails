@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import logo from '../lettuce-logo.png';
 import '../Styles/App.css';
-import NewPost from './NewPost';
+// import NewPost from './NewPost';
 import PostFeed from './PostFeed';
 import { connect } from 'react-redux';
 import { addPost } from '../Actions/posts';
@@ -29,7 +29,6 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h2>Welcome to LettuceShare!</h2>
         </div>
-          <NewPost addPost={ this.props.addPost }/>
           <PostFeed posts={ this.props.posts } />
       </div>
     );

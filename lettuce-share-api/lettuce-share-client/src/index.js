@@ -20,10 +20,6 @@ const store = createStore(
     )
   )
 
-store
-  .dispatch(fetchAllPosts())
-  .then(() => console.log(store.getState()))
-
 const RootEl = document.getElementById('root');
 ReactDOM.render(
   <Provider store={store}>
