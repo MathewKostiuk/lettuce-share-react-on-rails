@@ -3,8 +3,11 @@ import '../Styles/PostFeed.css';
 import Post from './Post.js';
 
 class PostFeed extends Component {
+
+
   render() {
-    const posts = this.props.posts.map((post) => {
+    console.log(this.props.posts);
+    const posts = this.props.posts.posts.map((post) => {
       return <Post
         description={ post.description }
         image={ post.image }

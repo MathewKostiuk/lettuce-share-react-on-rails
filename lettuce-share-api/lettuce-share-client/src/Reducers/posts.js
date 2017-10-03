@@ -4,7 +4,7 @@ import {
   RECEIVED_ALL_POSTS
 } from '../Actions/posts.js';
 
-function posts(
+export function postReducers(
   state = {
     isFetching: false,
     posts: []
@@ -30,4 +30,3 @@ function posts(
       return state
   }
 }
-export default posts
