@@ -13,10 +13,10 @@ export function receivedAllPosts(json) {
 }
 
 export function fetchAllPosts() {
-  return function (dispatch) {
+  return async function (dispatch) {
     dispatch(requestAllPosts())
 
-    return fetch('/api/posts.json')
+    return await fetch('/api/posts.json')
       .then(
         response => response.json(),
         error => console.log('An error occured', error)

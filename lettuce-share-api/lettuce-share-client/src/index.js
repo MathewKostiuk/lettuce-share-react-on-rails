@@ -31,13 +31,11 @@ store
 
 const RootEl = document.getElementById('root');
 
-setTimeout(function() {
   ReactDOM.render(
     <Provider store={store}>
       <App />
     </Provider>,
      RootEl);
   registerServiceWorker();
-}, 2000)
 
 
