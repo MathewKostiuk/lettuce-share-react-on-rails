@@ -30,8 +30,7 @@ export function fetchAllPosts() {
 export const ADD_POST = 'ADD_POST';
 export function initPostRequest(post) {
   return {
-    type: ADD_POST,
-    post
+    type: ADD_POST
   }
 }
 
@@ -44,18 +43,22 @@ export function addedPost() {
 }
 
 export function addPostRequest(post) {
+  console.log(post);
   return async function (dispatch) {
-    dispatch(initPostRequest())
+    dispatch(initPostRequest(post))
 
     return await fetch('/api/posts.json', {
       method: 'post',
-      headers: {'Content-type': 'application/json'},
-      body: {
+      headers: {
+        'Accept': 'application/json',
+        'Content-type': 'application/json'
+      },
+      body: JSON.stringify({
         description: post.description,
         image: post.image
-      }
+      })
     })
-    .then(addedPost())
-    .then(fetchAllPosts())
+    .then(dispatch(addedPost()))
+    .then(dispatch(fetchAllPosts()))
   }
 }

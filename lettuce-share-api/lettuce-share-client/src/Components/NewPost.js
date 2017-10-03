@@ -5,7 +5,7 @@ import { addPostRequest } from '../Actions/posts';
 class NewPost extends Component {
   submit = (values, dispatch) => {
     console.log(values, dispatch);
-    dispatch(addPostRequest(values));
+    dispatch(addPostRequest(values))
   }
   render() {
     return (

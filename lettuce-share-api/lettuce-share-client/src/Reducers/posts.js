@@ -1,5 +1,6 @@
 import {
   ADD_POST,
+  POST_ADDED,
   REQUEST_ALL_POSTS,
   RECEIVED_ALL_POSTS
 } from '../Actions/posts.js';
@@ -24,7 +25,12 @@ export function postReducers(
       })
     case ADD_POST:
       return Object.assign({}, state, {
-        posts: action.post
+        isFetching: true
+      })
+    case POST_ADDED:
+      return Object.assign({}, state, {
+        isFetching: false,
+        lastUpdated: action.receivedAt
       })
     default:
       return state
