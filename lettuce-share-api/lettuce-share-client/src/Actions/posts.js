@@ -28,9 +28,34 @@ export function fetchAllPosts() {
 }
 
 export const ADD_POST = 'ADD_POST';
-export function addPost(post) {
+export function initPostRequest(post) {
   return {
     type: ADD_POST,
     post
+  }
+}
+
+export const POST_ADDED = 'POST_ADDED';
+export function addedPost() {
+  return {
+    type: POST_ADDED,
+    receivedAt: Date.now()
+  }
+}
+
+export function addPostRequest(post) {
+  return async function (dispatch) {
+    dispatch(initPostRequest())
+
+    return await fetch('/api/posts.json', {
+      method: 'post',
+      headers: {'Content-type': 'application/json'},
+      body: {
+        description: post.description,
+        image: post.image
+      }
+    })
+    .then(addedPost())
+    .then(fetchAllPosts())
   }
 }

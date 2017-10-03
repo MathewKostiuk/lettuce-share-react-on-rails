@@ -4,6 +4,7 @@ import thunkMiddleware from 'redux-thunk';
 import { createLogger } from 'redux-logger';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, combineReducers } from 'redux';
+import { reducer as formReducer } from 'redux-form';
 import { postReducers } from './Reducers/posts';
 import { fetchAllPosts } from './Actions/posts';
 import './Styles/index.css';
@@ -12,14 +13,13 @@ import registerServiceWorker from './Components/registerServiceWorker';
 
 const loggerMiddleware = createLogger();
 
-const reducers = {
-  posts: postReducers
-}
-
-const reducer = combineReducers(reducers);
+const rootReducer = combineReducers({
+  posts: postReducers,
+  form: formReducer
+})
 
 const store = createStore(
-  reducer,
+  rootReducer,
   applyMiddleware(
     thunkMiddleware,
     loggerMiddleware
