@@ -145,6 +145,7 @@ DEPENDENCIES
   bcrypt (~> 3.1.7)
   byebug
   dotenv-rails
+  jwt
   knock
   listen (~> 3.0.5)
   pg (~> 0.18)
