@@ -9,7 +9,6 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.user_id = 1
     @post.category_id = 1
-    puts "this is #{ @post }@post"
     @post.save!
   end
 

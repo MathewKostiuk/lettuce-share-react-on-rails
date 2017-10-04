@@ -7,6 +7,7 @@ import { createStore, applyMiddleware, combineReducers } from 'redux';
 import { reducer as formReducer } from 'redux-form';
 import { postReducers } from './Reducers/posts';
 import { fetchAllPosts, POST_ADDED } from './Actions/posts';
+import { LOGIN_SUCCESS } from './Actions/auth';
 import './Styles/index.css';
 import App from './Components/App';
 import registerServiceWorker from './Components/registerServiceWorker';
@@ -19,6 +20,14 @@ const rootReducer = combineReducers({
     post: (state, action) => {
       switch(action.type) {
         case POST_ADDED:
+          return undefined;
+        default:
+          return state;
+      }
+    },
+    login: (state, action) => {
+      switch(action.type) {
+        case LOGIN_SUCCESS:
           return undefined;
         default:
           return state;
