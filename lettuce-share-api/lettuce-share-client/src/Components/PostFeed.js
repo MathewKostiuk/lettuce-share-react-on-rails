@@ -3,12 +3,12 @@ import '../Styles/PostFeed.css';
 import Post from './Post';
 import NewPost from './NewPost';
 import LogInPage from './LogInPage';
+import RegisterPage from './RegisterPage';
 
 class PostFeed extends Component {
 
 
   render() {
-    console.log(this.props.posts);
     const posts = this.props.posts.posts.map((post) => {
       return <Post
         description={ post.description }
@@ -18,6 +18,7 @@ class PostFeed extends Component {
     })
     return (
       <main className='posts-container'>
+        <RegisterPage />
         <LogInPage />
         <NewPost />
         { posts }

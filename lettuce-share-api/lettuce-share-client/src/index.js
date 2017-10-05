@@ -8,7 +8,7 @@ import { reducer as formReducer } from 'redux-form';
 import { postReducers } from './Reducers/posts';
 import { authReducers } from './Reducers/auth';
 import { fetchAllPosts, POST_ADDED } from './Actions/posts';
-import { LOGIN_SUCCESS } from './Actions/auth';
+import { LOGIN_SUCCESS, REGISTER_SUCCESS } from './Actions/auth';
 import './Styles/index.css';
 import App from './Components/App';
 import registerServiceWorker from './Components/registerServiceWorker';
@@ -30,6 +30,14 @@ const rootReducer = combineReducers({
     login: (state, action) => {
       switch(action.type) {
         case LOGIN_SUCCESS:
+          return undefined;
+        default:
+          return state;
+      }
+    },
+    register: (state, action) => {
+      switch(action.type) {
+        case REGISTER_SUCCESS:
           return undefined;
         default:
           return state;
