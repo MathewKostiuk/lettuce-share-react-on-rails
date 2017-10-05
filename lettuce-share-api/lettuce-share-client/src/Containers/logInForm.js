@@ -1,7 +1,6 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
-import { addPostRequest } from '../Actions/posts';
-
+import { loginUser } from '../Actions/auth';
 
 let LogInForm = props => {
   const { handleSubmit } = props
@@ -13,7 +12,7 @@ let LogInForm = props => {
       </div>
       <div>
         <label htmlFor='password'>Password</label>
-        <Field name='password' component='input' type='text' />
+        <Field name='password' component='input' type='password' />
       </div>
       <button type='submit'>Login</button>
     </form>
@@ -22,7 +21,7 @@ let LogInForm = props => {
 
 LogInForm = reduxForm({
   form: 'login',
-  onSubmit: addPostRequest
+  onSubmit: loginUser
 })(LogInForm)
 
 export default LogInForm

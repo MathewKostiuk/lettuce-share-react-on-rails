@@ -3,6 +3,7 @@ import '../Styles/PostFeed.css';
 import Post from './Post';
 import NewPost from './NewPost';
 import LogInPage from './LogInPage';
+
 class PostFeed extends Component {
 
 

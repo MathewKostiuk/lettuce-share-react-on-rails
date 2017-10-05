@@ -15,6 +15,7 @@ puts "Re-creating user"
 
 User.create!({
   email: 'john@doe.com',
+  password_digest: '$2a$06$ZJNghrhD/H1zVjNDnmV5TO0777FtW3PPXXbrqjBmR9fB13hY5Hrwm'
   })
 
 

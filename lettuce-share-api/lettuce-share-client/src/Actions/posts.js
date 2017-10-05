@@ -43,7 +43,6 @@ export function addedPost() {
 }
 
 export function addPostRequest(post) {
-  console.log(post);
   return async function (dispatch) {
     dispatch(initPostRequest(post))
 
