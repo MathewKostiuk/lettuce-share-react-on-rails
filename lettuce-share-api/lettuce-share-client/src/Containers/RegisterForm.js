@@ -14,7 +14,11 @@ let RegisterForm = props => {
         <label htmlFor='password'>Password</label>
         <Field name='password' component='input' type='password' />
       </div>
-      <button type='submit'>Login</button>
+      <div>
+        <label htmlFor='password_confirmation'>Confirm Password</label>
+        <Field name='password_confirmation' component='input' type='password' />
+      </div>
+      <button type='submit'>Register</button>
     </form>
   )
 }

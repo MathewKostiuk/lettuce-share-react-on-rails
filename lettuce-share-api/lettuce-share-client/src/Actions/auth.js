@@ -21,14 +21,17 @@ export function loginUser(info) {
         password: info.password
       })
     })
-    .then(response => {
-      const res = response.json()
-      sessionStorage.setItem('jwt', res.jwt)
+    .then(
+      response => response.json(),
+      error => {
+        console.log('An error occured', error)
+        dispatch(loginError())
+      }
+    )
+    .then(json =>
+      sessionStorage.setItem('jwt', json.jwt),
       dispatch(loginSuccess())
-    }).catch(error => {
-      dispatch(loginError())
-      return error
-    })
+    )
   }
 }
 
@@ -51,17 +54,24 @@ export function registerUser(info) {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        email: info.email,
-        password: info.password
+        user: {
+          email: info.email,
+          password: info.password,
+          password_confirmation: info.password_confirmation
+        }
+
       })
     })
-    .then(response => {
-      const res= response.json()
-      sessionStorage.setItem('jwt', res.jwt)
+    .then(
+      response => response.json(),
+      error => {
+        console.log('An error occured', error)
+        dispatch(registerError())
+    }
+    )
+    .then(json =>
+      sessionStorage.setItem('jwt', json.jwt),
       dispatch(registerSuccess())
-    }).catch(error => {
-      dispatch(registerError())
-      return error;
-    })
+    )
   }
 }
