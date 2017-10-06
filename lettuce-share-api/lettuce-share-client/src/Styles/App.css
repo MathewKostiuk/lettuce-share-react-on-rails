@@ -24,5 +24,13 @@
 }
 
 body {
-  background-image: url(../radish23.png);
+  max-height: 100%;
+  max-width: 100%;
+}
+
+html {
+  min-width: 100%;
+  min-height: 100%;
+  background-position: top center;
+  background-image: url(../radish2.jpg);
 }

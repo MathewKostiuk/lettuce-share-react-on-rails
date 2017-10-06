@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import logo from '../lettuce-logo.png';
 import '../Styles/App.css';
-// import NewPost from './NewPost';
 import ActivePostFeed from '../Containers/PostFeed';
 
 
