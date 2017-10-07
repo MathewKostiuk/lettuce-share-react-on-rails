@@ -12,18 +12,19 @@ export function receivedAllPosts(json) {
   }
 }
 
+
 export function fetchAllPosts() {
   return async function (dispatch) {
     dispatch(requestAllPosts())
 
-    return await fetch('/api/posts.json')
-      .then(
-        response => response.json(),
-        error => console.log('An error occured', error)
-      )
-      .then(json =>
-        dispatch(receivedAllPosts(json))
-      )
+    const response = await fetch('api/posts.json')
+    const json = await response.json()
+
+    if (response.status < 300) {
+      return dispatch(receivedAllPosts(json))
+    } else {
+      console.log('An error has occured')
+    }
   }
 }
 
@@ -46,7 +47,7 @@ export function addPostRequest(post) {
   return async function (dispatch) {
     dispatch(initPostRequest(post))
 
-    return await fetch('/api/posts.json', {
+    const response = await fetch('/api/posts.json', {
       method: 'post',
       headers: {
         'Accept': 'application/json',
@@ -57,7 +58,11 @@ export function addPostRequest(post) {
         image: post.image
       })
     })
-    .then(dispatch(addedPost()))
-    .then(dispatch(fetchAllPosts()))
+
+    if (response.status < 300) {
+      return dispatch(addedPost())
+    } else {
+      console.log('An error has occured')
+    }
   }
 }

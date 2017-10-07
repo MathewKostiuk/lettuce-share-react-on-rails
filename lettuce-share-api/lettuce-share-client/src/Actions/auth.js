@@ -9,8 +9,8 @@ export function loginError() {
 }
 
 export function loginUser(info) {
-  return function(dispatch) {
-    return fetch('api/login', {
+  return async function(dispatch) {
+    const response = await fetch('api/login', {
       method: 'post',
       headers: {
         'Accept': 'application/json',
@@ -21,17 +21,15 @@ export function loginUser(info) {
         password: info.password
       })
     })
-    .then(
-      response => response.json(),
-      error => {
-        console.log('An error occured', error)
-        dispatch(loginError())
-      }
-    )
-    .then(json =>
-      sessionStorage.setItem('jwt', json.jwt),
+    const json = await response.json()
+
+    if (response.status < 300) {
+      sessionStorage.setItem('jwt', json.jwt)
       dispatch(loginSuccess())
-    )
+    } else {
+      dispatch(loginError())
+      console.log('An error has occured')
+    }
   }
 }
 
@@ -46,8 +44,8 @@ export function registerError() {
 }
 
 export function registerUser(info) {
-  return function(dispatch) {
-    return fetch('api/register', {
+  return async function(dispatch) {
+    const response = await fetch('api/register', {
       method: 'post',
       headers: {
         'Accept': 'application/json',
@@ -62,16 +60,14 @@ export function registerUser(info) {
 
       })
     })
-    .then(
-      response => response.json(),
-      error => {
-        console.log('An error occured', error)
-        dispatch(registerError())
-    }
-    )
-    .then(json =>
-      sessionStorage.setItem('jwt', json.jwt),
+    const json = await response.json()
+
+    if (response.status < 300) {
+      sessionStorage.setItem('jwt', json.jwt)
       dispatch(registerSuccess())
-    )
+    } else {
+      dispatch(registerError())
+      console.log('An error has occured')
+    }
   }
 }
