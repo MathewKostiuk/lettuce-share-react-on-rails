@@ -30,8 +30,6 @@ body {
 
 html {
   min-width: 100%;
-  /*min-height: 100%;*/
-  /*background-position: top center;*/
   background: #61BD34 url(../radish2.jpg) no-repeat center center fixed;
   background-size: cover;
 }
