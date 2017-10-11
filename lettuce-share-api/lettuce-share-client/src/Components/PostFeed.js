@@ -2,8 +2,6 @@ import React, {Component} from 'react';
 import '../Styles/PostFeed.css';
 import Post from './Post';
 import NewPost from './NewPost';
-import LogInPage from './LogInPage';
-import RegisterPage from './RegisterPage';
 
 class PostFeed extends Component {
 
@@ -18,8 +16,6 @@ class PostFeed extends Component {
     })
     return (
       <main className='posts-container'>
-      <RegisterPage />
-      <LogInPage />
         <NewPost />
         { posts }
       </main>
