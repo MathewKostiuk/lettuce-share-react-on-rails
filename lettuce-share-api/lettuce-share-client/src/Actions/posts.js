@@ -17,7 +17,12 @@ export function fetchAllPosts() {
   return async function (dispatch) {
     dispatch(requestAllPosts())
 
-    const response = await fetch('api/posts.json')
+    const response = await fetch('api/posts.json',{
+      method: 'get',
+      headers: {
+        'AUTHORIZATION': `Bearer ${sessionStorage.jwt}`
+      }
+    })
     const json = await response.json()
 
     if (response.status < 300) {
@@ -51,7 +56,8 @@ export function addPostRequest(post) {
       method: 'post',
       headers: {
         'Accept': 'application/json',
-        'Content-type': 'application/json'
+        'Content-type': 'application/json',
+        'AUTHORIZATION': `Bearer ${sessionStorage.jwt}`
       },
       body: JSON.stringify({
         description: post.description,

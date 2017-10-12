@@ -5,6 +5,11 @@ import NewPost from './NewPost';
 
 class PostFeed extends Component {
 
+  componentDidMount() {
+    console.log('componentWillMount', this.props.getAllPosts());
+    this.props.getAllPosts();
+  }
+
 
   render() {
     const posts = this.props.posts.posts.map((post) => {

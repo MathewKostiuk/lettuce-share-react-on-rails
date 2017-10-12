@@ -6,7 +6,6 @@ import '../Styles/Navigation.css';
 class Navigation extends Component {
   render() {
     const { auth } = this.props;
-    console.log(auth);
     if (auth.auth) {
       return (
         <header>

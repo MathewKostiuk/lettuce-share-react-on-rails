@@ -10,7 +10,9 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    getAllPosts: dispatch(fetchAllPosts)
+    getAllPosts: () => {
+      dispatch(fetchAllPosts())
+    }
   }
 }
 
