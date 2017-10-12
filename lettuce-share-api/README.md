@@ -23,6 +23,7 @@ cd ..
 - Create `config/secrets.yml` you can create your own secret key base, or use  `rails secret` to generate one
 - Create `.env` and set `AUTH_SECRET=your_generated_secret` & `SECRET_KEY_BASE=other_generated_secret`
 - `gem install foreman`
-- `foreman start -p 3000` will start both servers
+- `foreman start -p 3000` will start both servers. Must be run from `lettuce-share-api`
+
  
 
