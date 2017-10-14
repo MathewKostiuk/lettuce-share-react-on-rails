@@ -16,8 +16,8 @@ This is a project i've been working on to further understand React & Redux. It c
 git clone git@github.com:MathewKostiuk/lettuce-share-react-on-rails.git custom_name_here_if_you_choose
 cd custom_name_here_if_you_choose/lettuce-share-api
 bundle install
-cd lettuce-share-client && npm i
-cd ..
+cd .. && cd lettuce-share-client && npm i
+cd .. && cd lettuce-share-api
 ```
 - Create `config/database.yml` by copying `config/database.example.yml`
 - Create `config/secrets.yml` you can create your own secret key base, or use  `rails secret` to generate one
