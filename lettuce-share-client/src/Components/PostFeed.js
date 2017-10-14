@@ -7,7 +7,6 @@ class PostFeed extends Component {
 
   componentDidMount() {
     this.props.getAllPosts();
-    this.props.resetRedirect();
   }
 
 

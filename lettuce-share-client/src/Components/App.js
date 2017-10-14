@@ -4,7 +4,8 @@ import logo from '../lettuce-logo.png';
 import '../Styles/App.css';
 import Navigation from './Navigation';
 import { ActivePostFeed } from '../Containers/PostFeed';
-import { ActiveLoginPage, ActiveRegisterPage } from '../Containers/Redirect';
+import LogInPage from './LogInPage';
+import RegisterPage from './RegisterPage';
 
 class App extends Component {
 
@@ -21,12 +22,12 @@ class App extends Component {
               !!sessionStorage.jwt ? (
                 <Redirect to='/posts' />
                 ) : (
-                <ActiveLoginPage />
+                <LogInPage />
                 )
             )}/>
             <Route path='/posts' component={ActivePostFeed} />
-            <Route path='/register' component={ActiveRegisterPage} />
-            <Route path='/login' component={ActiveLoginPage} />
+            <Route path='/register' component={RegisterPage} />
+            <Route path='/login' component={LogInPage} />
           </Switch>
       </div>
     );

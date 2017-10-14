@@ -40,16 +40,6 @@ export function logoutUser() {
   return { type: LOG_OUT }
 }
 
-export const FIRE_REDIRECT = 'FIRE_REDIRECT';
-export function fireRedirect() {
-  return { type: FIRE_REDIRECT }
-}
-
-export const RESET_REDIRECT = 'RESET_REDIRECT';
-export function resetRedirect() {
-  return { type: RESET_REDIRECT }
-}
-
 export const REGISTER_SUCCESS = 'REGISTER_SUCCESS';
 export function registerSuccess() {
   return { type: REGISTER_SUCCESS }
