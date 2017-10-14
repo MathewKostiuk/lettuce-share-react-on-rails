@@ -2,7 +2,8 @@ import {
   LOGIN_SUCCESS,
   LOGIN_ERROR,
   REGISTER_SUCCESS,
-  REGISTER_ERROR
+  REGISTER_ERROR,
+  LOG_OUT
 } from '../Actions/auth';
 
 export function authReducers(
@@ -17,6 +18,10 @@ export function authReducers(
         auth: !!sessionStorage.jwt
       })
     case LOGIN_ERROR:
+      return Object.assign({}, state, {
+        auth: false
+      })
+    case LOG_OUT:
       return Object.assign({}, state, {
         auth: false
       })

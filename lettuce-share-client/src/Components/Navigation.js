@@ -1,9 +1,16 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { logoutUser } from '../Actions/auth';
 import '../Styles/Navigation.css';
 
 class Navigation extends Component {
+
+  logoutUser = (event) => {
+    event.preventDefault();
+    this.props.logoutUser();
+  }
+
   render() {
     const { auth } = this.props;
     if (auth.auth) {
@@ -12,6 +19,7 @@ class Navigation extends Component {
           <nav>
             <ul className='navigation'>
               <li><Link to='/posts' className='nav-link'>Home</Link></li>
+              <a href='/logout' className='nav-link' onClick={this.logoutUser}>Logout</a>
             </ul>
           </nav>
         </header>
@@ -38,4 +46,12 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps)(Navigation)
+const mapDispatchToProps = dispatch => {
+  return {
+    logoutUser: () => {
+      dispatch(logoutUser())
+    }
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Navigation)

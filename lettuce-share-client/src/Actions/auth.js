@@ -26,11 +26,18 @@ export function loginUser(info) {
     if (response.status < 300) {
       sessionStorage.setItem('jwt', json.jwt)
       dispatch(loginSuccess())
+      return response.status;
     } else {
       dispatch(loginError())
       console.log('An error has occured')
     }
   }
+}
+
+export const LOG_OUT = 'LOG_OUT';
+export function logoutUser() {
+  sessionStorage.removeItem('jwt');
+  return { type: LOG_OUT }
 }
 
 export const REGISTER_SUCCESS = 'REGISTER_SUCCESS';
