@@ -3,12 +3,15 @@ import {
   LOGIN_ERROR,
   REGISTER_SUCCESS,
   REGISTER_ERROR,
-  LOG_OUT
+  LOG_OUT,
+  FIRE_REDIRECT,
+  RESET_REDIRECT
 } from '../Actions/auth';
 
 export function authReducers(
   state = {
-    auth: !!sessionStorage.jwt
+    auth: !!sessionStorage.jwt,
+    redirect: false
   },
   action
 ) {
@@ -32,6 +35,14 @@ export function authReducers(
     case REGISTER_ERROR:
       return Object.assign({}, state, {
         auth: false
+      })
+    case FIRE_REDIRECT:
+      return Object.assign({}, state, {
+        redirect: true
+      })
+    case RESET_REDIRECT:
+      return Object.assign({}, state, {
+        redirect: false
       })
     default:
       return state

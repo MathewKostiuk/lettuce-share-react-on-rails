@@ -2,10 +2,9 @@ import React, { Component } from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import logo from '../lettuce-logo.png';
 import '../Styles/App.css';
-import PostFeed from '../Containers/PostFeed';
 import Navigation from './Navigation';
-import LoginPage from './LogInPage';
-import RegisterPage from './RegisterPage';
+import { ActivePostFeed } from '../Containers/PostFeed';
+import { ActiveLoginPage, ActiveRegisterPage } from '../Containers/Redirect';
 
 class App extends Component {
 
@@ -22,12 +21,12 @@ class App extends Component {
               !!sessionStorage.jwt ? (
                 <Redirect to='/posts' />
                 ) : (
-                <LoginPage />
+                <ActiveLoginPage />
                 )
             )}/>
-            <Route path='/posts' component={PostFeed} />
-            <Route path='/register' component={RegisterPage} />
-            <Route path='/login' component={LoginPage} />
+            <Route path='/posts' component={ActivePostFeed} />
+            <Route path='/register' component={ActiveRegisterPage} />
+            <Route path='/login' component={ActiveLoginPage} />
           </Switch>
       </div>
     );

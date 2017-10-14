@@ -7,11 +7,12 @@ class PostFeed extends Component {
 
   componentDidMount() {
     this.props.getAllPosts();
+    this.props.resetRedirect();
   }
 
 
   render() {
-    const posts = this.props.posts.posts.map((post) => {
+    const posts = this.props.posts.map((post) => {
       return <Post
         description={ post.description }
         image={ post.image }

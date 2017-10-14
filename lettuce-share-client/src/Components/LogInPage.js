@@ -4,18 +4,9 @@ import LogInForm from '../Containers/logInForm';
 import { loginUser } from '../Actions/auth';
 
 class LogInPage extends Component {
-  constructor() {
-    super();
-    this.state = {
-      fireRedirect: false
-    }
-  }
-
   handleRedirect(response) {
     if (response < 300) {
-      this.setState({
-        fireRedirect: true
-      })
+      this.props.fireRedirect()
     }
   }
 
@@ -24,11 +15,11 @@ class LogInPage extends Component {
   }
 
   render() {
-    const { fireRedirect } = this.state
+    const { redirect } = this.props
     return (
       <div>
         <LogInForm onSubmit={ this.submitForm } />
-        {fireRedirect &&  (
+        {redirect &&  (
             <Redirect to='/posts'/>
         )}
       </div>

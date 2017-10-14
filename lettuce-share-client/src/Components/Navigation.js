@@ -1,19 +1,20 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { Redirect } from 'react-router';
 import { connect } from 'react-redux';
-import { logoutUser } from '../Actions/auth';
+import { logoutUser, fireRedirect } from '../Actions/auth';
 import '../Styles/Navigation.css';
 
 class Navigation extends Component {
-
   logoutUser = (event) => {
     event.preventDefault();
     this.props.logoutUser();
+    this.props.fireRedirect();
   }
 
   render() {
-    const { auth } = this.props;
-    if (auth.auth) {
+    const { auth, redirect } = this.props
+    if (auth) {
       return (
         <header>
           <nav>
@@ -34,6 +35,9 @@ class Navigation extends Component {
               <li><Link to='/register' className='nav-link'>Register</Link></li>
             </ul>
           </nav>
+            {redirect &&  (
+                <Redirect to='/register'/>
+            )}
         </header>
       )
     }
@@ -42,7 +46,8 @@ class Navigation extends Component {
 
 const mapStateToProps = state => {
   return {
-    auth: state.auth
+    auth: state.auth.auth,
+    redirect: state.auth.redirect
   }
 }
 
@@ -50,6 +55,9 @@ const mapDispatchToProps = dispatch => {
   return {
     logoutUser: () => {
       dispatch(logoutUser())
+    },
+    fireRedirect: () => {
+      dispatch(fireRedirect())
     }
   }
 }
