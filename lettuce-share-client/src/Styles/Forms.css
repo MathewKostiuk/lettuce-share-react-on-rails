@@ -1,0 +1,22 @@
+.auth-form {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  grid-gap: 16px;
+  background-color: white;
+}
+
+.auth-form label {
+  grid-column: 1 / 2;
+  text-align: end;
+}
+
+.auth-form input,
+ button {
+  grid-column: 2 / 3;
+}
+
+.login-register {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
