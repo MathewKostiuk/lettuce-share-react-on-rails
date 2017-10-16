@@ -24,7 +24,13 @@ class App extends Component {
                 <WelcomePage />
                 )
             )}/>
-            <Route path='/posts' component={ActivePostFeed} />
+            <Route path='/posts' render={() => (
+              !!sessionStorage.jwt ? (
+                <ActivePostFeed />
+                ) : (
+                <Redirect to='/login' />
+                )
+            )}/>
             <Route path='/register' component={WelcomePage} />
             <Route path='/login' component={WelcomePage} />
           </Switch>

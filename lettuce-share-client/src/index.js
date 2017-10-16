@@ -12,5 +12,3 @@ const RootEl = document.getElementById('root');
     <Root store={store} />,
      RootEl);
   registerServiceWorker();
-
-
