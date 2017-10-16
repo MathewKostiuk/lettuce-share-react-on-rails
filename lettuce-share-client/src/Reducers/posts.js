@@ -17,16 +17,19 @@ export function postReducers(
       return Object.assign({}, state, {
         isFetching: true
       })
+      break
     case RECEIVED_ALL_POSTS:
       return Object.assign({}, state, {
         isFetching: false,
         posts: action.posts,
         lastUpdated: action.receivedAt
       })
+      break
     case ADD_POST:
       return Object.assign({}, state, {
         isFetching: true
       })
+      break
     case POST_ADDED:
       return Object.assign({}, state, {
         isFetching: false,
