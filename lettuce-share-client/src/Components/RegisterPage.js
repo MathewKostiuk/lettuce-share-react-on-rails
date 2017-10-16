@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import  RegisterForm  from '../Containers/RegisterForm';
 import { registerUser } from '../Actions/auth';
+import '../Styles/Forms.css'
 
 class RegisterPage extends Component {
   handleRedirect(response) {

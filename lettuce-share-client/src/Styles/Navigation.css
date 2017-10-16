@@ -20,6 +20,16 @@
   }
 }
 
+.navigation li ul {
+  display: none;
+  width: inherit;
+  position: absolute;
+}
+
+.navigation li:hover ul {
+  display: block;
+}
+
 @media all and (max-width: 500px) {
   .navigation {
     flex-flow: column wrap;

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import LogInForm from '../Containers/logInForm';
 import { loginUser } from '../Actions/auth';
+import '../Styles/Forms.css';
 
 class LogInPage extends Component {
   handleRedirect(response) {

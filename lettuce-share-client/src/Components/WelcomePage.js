@@ -7,8 +7,7 @@ class WelcomePage extends Component {
   render() {
     return (
       <div className='login-register'>
-        <LogInPage />
-        <RegisterPage />
+        <p>Welcome to LettuceShare</p>
       </div>
     )
   }
