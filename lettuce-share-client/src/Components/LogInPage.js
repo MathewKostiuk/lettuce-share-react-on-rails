@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import LogInForm from '../Containers/logInForm';
 import { loginUser } from '../Actions/auth';
+import { withRouter } from 'react-router';
 import '../Styles/Forms.css';
 
 class LogInPage extends Component {
@@ -21,4 +22,4 @@ class LogInPage extends Component {
   }
 }
 
-export default LogInPage
+export default withRouter(LogInPage)

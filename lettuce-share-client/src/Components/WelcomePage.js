@@ -1,7 +1,4 @@
 import React, { Component } from 'react';
-import LogInPage from './LogInPage';
-import RegisterPage from './RegisterPage';
-import '../Styles/Forms.css';
 
 class WelcomePage extends Component {
   render() {

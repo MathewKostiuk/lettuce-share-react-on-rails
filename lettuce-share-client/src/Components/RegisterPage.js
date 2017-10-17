@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import  RegisterForm  from '../Containers/RegisterForm';
 import { registerUser } from '../Actions/auth';
+import { withRouter } from 'react-router';
 import '../Styles/Forms.css'
 
 class RegisterPage extends Component {
@@ -21,4 +22,4 @@ class RegisterPage extends Component {
   }
 }
 
-export default RegisterPage
+export default withRouter(RegisterPage)
